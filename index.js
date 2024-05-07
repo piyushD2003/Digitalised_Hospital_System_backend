@@ -1,9 +1,11 @@
 const connectToMongo = require('./db');
-var cors = require('cors')
-const express = require('express')
+const cors = require('cors');
+const express = require('express');
+const app = express();
+const port = 5000;
+
 connectToMongo();
-const app = express()
-const port = 5000
+
 app.use(cors({
   origin: "https://digitalised-hospital-system-frontend-piyush-dhyanis-projects.vercel.app",
   methods: ["GET", "POST", "PUT"],
@@ -16,16 +18,26 @@ app.use(cors({
     "multipart/form-data"
   ],
   credentials: true
-}))
+}));
 
-app.use(express.json())
+app.use(express.json());
 
-app.use('/api/auth',require('./routes/auth'))
-app.use('/api/list',require('./routes/list'))
+// Set CORS headers for all responses
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://digitalised-hospital-system-frontend-piyush-dhyanis-projects.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept, Authorization, X-Request-With, multipart/form-data');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/list', require('./routes/list'));
+
 app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+  res.send('Hello World!');
+});
 
 app.listen(port, () => {
-  console.log(`Hospital Management Backend listening on port ${port}`)
-})
+  console.log(`Hospital Management Backend listening on port ${port}`);
+});
