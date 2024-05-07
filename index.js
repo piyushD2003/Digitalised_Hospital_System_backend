@@ -5,7 +5,7 @@ connectToMongo();
 const app = express()
 const port = 5000
 app.use(cors({
-  origin:["https://digitalised-hospital-system-frontend.vercel.app/"],
+  origin:["https://digitalised-hospital-system-frontend-piyush-dhyanis-projects.vercel.app/"],
   methods:["GET","POST","PUT"],
   allowedHeaders: ["Origin",
     "Content-Type",
