@@ -7,7 +7,14 @@ const port = 5000
 app.use(cors({
   origin:["https://digitalised-hospital-system-frontend.vercel.app/"],
   methods:["GET","POST","PUT"],
-  credentials:true
+  allowedHeaders: ["Origin",
+    "Content-Type",
+    "Accept",
+    "Authorization",
+    "X-Request-With",
+    "multipart/form-data"
+    ],
+  credentials:true,
 }))
 app.use(express.json())
 
