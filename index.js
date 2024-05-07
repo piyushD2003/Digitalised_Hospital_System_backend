@@ -7,7 +7,7 @@ const port = 5000;
 connectToMongo();
 
 app.use(cors({
-  origin: "https://digitalised-hospital-system-frontend-piyush-dhyanis-projects.vercel.app",
+  origin: "https://digitalised-hospital-system-frontend.vercel.app",
   methods: ["GET", "POST", "PUT"],
   allowedHeaders: [
     "Origin",
@@ -24,7 +24,7 @@ app.use(express.json());
 
 // Set CORS headers for all responses
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://digitalised-hospital-system-frontend-piyush-dhyanis-projects.vercel.app');
+  res.setHeader('Access-Control-Allow-Origin', 'https://digitalised-hospital-system-frontend.vercel.app/');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept, Authorization, X-Request-With, multipart/form-data');
   res.setHeader('Access-Control-Allow-Credentials', true);
