@@ -5,17 +5,19 @@ connectToMongo();
 const app = express()
 const port = 5000
 app.use(cors({
-  origin:["https://digitalised-hospital-system-frontend-piyush-dhyanis-projects.vercel.app/"],
-  methods:["GET","POST","PUT"],
-  allowedHeaders: ["Origin",
+  origin: "https://digitalised-hospital-system-frontend-piyush-dhyanis-projects.vercel.app",
+  methods: ["GET", "POST", "PUT"],
+  allowedHeaders: [
+    "Origin",
     "Content-Type",
     "Accept",
     "Authorization",
     "X-Request-With",
     "multipart/form-data"
-    ],
-  credentials:true,
+  ],
+  credentials: true
 }))
+
 app.use(express.json())
 
 app.use('/api/auth',require('./routes/auth'))
