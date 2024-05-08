@@ -6,7 +6,7 @@ const cors = require("cors")
 connectToMongo();
 
 app.use(cors({
-  origin: "https://digitalised-hospital-system-backend.vercel.app",
+  origin: "https://digitalised-hospital-system-frontend.vercel.app/",
 }))
 
 app.use(express.json());
