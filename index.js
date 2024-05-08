@@ -6,7 +6,7 @@ const cors = require("cors")
 connectToMongo();
 
 app.use(cors({
-  origin: "*",
+  origin: "https://digitalised-hospital-system-backend.vercel.app",
 }))
 
 app.use(express.json());
@@ -19,5 +19,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(() => {
-  console.log(`Hospital Management Backend listening}`);
+  console.log(`Hospital Management Backend listening on port`);
 });
