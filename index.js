@@ -7,6 +7,8 @@ connectToMongo();
 
 app.use(cors({
   origin: "https://digitalised-hospital-system-frontend.vercel.app",
+  methods:["GET","POST","PUT"],
+  credentials:true
 }))
 
 app.use(express.json());
