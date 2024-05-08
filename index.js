@@ -1,7 +1,7 @@
 const connectToMongo = require('./db');
 const express = require('express');
 const app = express();
-const port = 5000;
+
 const cors = require("cors")
 connectToMongo();
 
@@ -18,6 +18,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(port, () => {
-  console.log(`Hospital Management Backend listening on port ${port}`);
+app.listen(() => {
+  console.log(`Hospital Management Backend listening}`);
 });
